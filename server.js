@@ -14,6 +14,9 @@ function serverResponse(request, response){
 
 PORTS.forEach(function(port) {
     s = http.createServer(serverResponse);
-    s.listen(port);
+    s.listen(port, function(){
+        console.log("Server has been started. Listening on http://localhost:" + PORTS)
+
+    });
     servers.push(s);
 });
